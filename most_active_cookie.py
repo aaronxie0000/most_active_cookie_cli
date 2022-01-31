@@ -52,9 +52,7 @@ def closestDate(allCookies, tDate):
 if __name__ == "__main__":
     filename = sys.argv[1]
     readDates = readData(filename)
-    print(readDates)
     tDate = sys.argv[-1]
     ans = closestDate(readDates, tDate)
     for i in ans:
-        # print(i + "\n")
-        pass
+        print(i)

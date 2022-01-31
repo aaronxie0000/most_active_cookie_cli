@@ -1,7 +1,5 @@
 import sys
 import csv
-from datetime import datetime
-
 
 def readData(filename):
 
@@ -12,18 +10,14 @@ def readData(filename):
         for entry in csv_reader:
             # O(1)
             cookieName = entry["cookie"]
-            dateFrom = entry["timestamp"][0:10]
-            # timeFrom = entry['timestamp'][11:16]
-            cookieDate = datetime.strptime(
-                dateFrom, "%Y-%m-%d"
-            )  # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+            cookieDate = entry["timestamp"][0:10]
+            cookieTime = entry['timestamp'][11:16]
             allFiles.append([cookieName, cookieDate])
 
     return allFiles
 
 
 def closestDate(allCookies, tDate):
-    tDate = datetime.strptime(tDate, "%Y-%m-%d")
     matchedCookies = {
         # cookieName: occur
     }
